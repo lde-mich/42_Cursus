@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 09:48:55 by lde-mich          #+#    #+#             */
-/*   Updated: 2023/03/07 17:37:52 by lde-mich         ###   ########.fr       */
+/*   Created: 2023/01/25 06:15:18 by lde-mich          #+#    #+#             */
+/*   Updated: 2023/03/07 10:12:15 by lde-mich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_stack	stack;
+	char	*str1;
 	int		i;
+	int		j;
 
-	if (argc <= 1)
-		exit(write(1, "Error\nInvalid input", 19));
-	ft_size_count(argc, argv, &stack);
-	stack.stack_b = (int *) malloc (stack.size_a * sizeof(int));
-	i = 0;
-	while (i < stack.size_a)
-	{
-		printf("%d\n", stack.stack_a[i]);
-		i++;
-	}
-	sa(&stack);
-	i = 0;
-	while (i < stack.size_a)
-	{
-		printf("%d\n", stack.stack_a[i]);
-		i++;
-	}
+	if (!s1 && !s2)
+		return (0);
+	if (!s1)
+		return ((char *) s2);
+	if (!s2)
+		return ((char *) s1);
+	str1 = (char *) malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (!str1)
+		return (0);
+	i = -1;
+	while (s1[++i])
+		str1[i] = s1[i];
+	j = 0;
+	while (s2[j])
+		str1[i++] = s2[j++];
+	str1[i] = '\0';
+	return (str1);
 }

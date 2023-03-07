@@ -6,35 +6,40 @@
 /*   By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 09:49:13 by lde-mich          #+#    #+#             */
-/*   Updated: 2023/03/06 09:49:32 by lde-mich         ###   ########.fr       */
+/*   Updated: 2023/03/07 16:55:12 by lde-mich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <string.h>
+# include <stdarg.h>
+# include <fcntl.h>
+
 typedef struct s_stack
 {
-	int				num;
-	struct s_stack	*next;
+	int	*stack_a;
+	int	*stack_b;
+	int	size_a;
+	int	size_b;
 
 }	t_stack;
 
-void	ra(t_stack **stack);
-void	rb(t_stack **stack);
-void	rr(t_stack **stack_a, t_stack **stack_b);
-void	print_list(t_stack *stack);
-void	sb(t_stack **stack);
-void	sa(t_stack **stack);
-void	ss(t_stack **stack_a, t_stack **stack);
-void	pa(t_stack **stack_a, t_stack **stack_b);
-void	pb(t_stack **stack_a, t_stack **stack_b);
-void	rra(t_stack **stack);
-void	rrb(t_stack **stack);
-void	rrr(t_stack **stack_a, t_stack **stack_b);
-t_stack	*stack_last(t_stack *stack);
-int		stack_size(t_stack *stack);
-void	add_back_stack(t_stack **stack, t_stack *new);
-void	add_front_stack(t_stack **stack, t_stack *new);
+int		ft_atoi(const char *str);
+int		ft_strlen(const char *str);
+void	ft_size_count(int argc, char **argv, t_stack *stack);
+char	*ft_strjoin(char const *s1, char const *s2);
+int		ft_word(const char *s, char c);
+void	ft_while(char **final, const char *s, char c);
+char	**ft_split(char const *s, char c);
+void	sa(t_stack *stack);
+void	sb(t_stack *stack);
+void	ss(t_stack *stack);
+void	pa(t_stack *stack);
+void	pb(t_stack *stack);
 
 #endif

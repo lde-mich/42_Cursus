@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_size_count.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 09:48:55 by lde-mich          #+#    #+#             */
-/*   Updated: 2023/03/07 17:37:52 by lde-mich         ###   ########.fr       */
+/*   Created: 2023/03/07 09:48:33 by lde-mich          #+#    #+#             */
+/*   Updated: 2023/03/07 17:27:59 by lde-mich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_size_count(int argc, char **argv, t_stack *stack)
 {
-	t_stack	stack;
 	int		i;
+	int		j;
+	char	*temp;
+	char	**temp1;
 
-	if (argc <= 1)
-		exit(write(1, "Error\nInvalid input", 19));
-	ft_size_count(argc, argv, &stack);
-	stack.stack_b = (int *) malloc (stack.size_a * sizeof(int));
-	i = 0;
-	while (i < stack.size_a)
+	i = 1;
+	while (i < argc)
 	{
-		printf("%d\n", stack.stack_a[i]);
+		temp = ft_strjoin(temp, argv[i]);
+		temp = ft_strjoin(temp, " ");
 		i++;
 	}
-	sa(&stack);
-	i = 0;
-	while (i < stack.size_a)
+	temp1 = ft_split(temp, 32);
+	stack->size_a = i - 1;
+	stack->stack_a = (int *) malloc (stack->size_a * sizeof(int));
+	j = 0;
+	while (temp1[j])
 	{
-		printf("%d\n", stack.stack_a[i]);
-		i++;
+		if (ft_atoi(temp1[j]) == 0)
+			exit(write(1, "Error\nInvaliD input", 19));
+		stack->stack_a[j] = ft_atoi(temp1[j]);
+		j++;
 	}
 }

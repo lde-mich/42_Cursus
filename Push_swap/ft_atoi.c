@@ -1,37 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 09:48:55 by lde-mich          #+#    #+#             */
-/*   Updated: 2023/03/07 17:37:52 by lde-mich         ###   ########.fr       */
+/*   Created: 2023/01/17 04:08:27 by lde-mich          #+#    #+#             */
+/*   Updated: 2023/03/07 17:13:34 by lde-mich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	ft_atoi(const char *str)
 {
-	t_stack	stack;
-	int		i;
+	int	i;
+	int	count;
+	int	logic;
 
-	if (argc <= 1)
-		exit(write(1, "Error\nInvalid input", 19));
-	ft_size_count(argc, argv, &stack);
-	stack.stack_b = (int *) malloc (stack.size_a * sizeof(int));
+	count = 0;
+	logic = 1;
 	i = 0;
-	while (i < stack.size_a)
+	while ((str[i] == ' ') || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' )
 	{
-		printf("%d\n", stack.stack_a[i]);
+		logic = -1;
 		i++;
 	}
-	sa(&stack);
-	i = 0;
-	while (i < stack.size_a)
+	else if (str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		printf("%d\n", stack.stack_a[i]);
+		count = count * 10;
+		count = count + (str[i] - 48);
 		i++;
 	}
+	if (str[i] != 0)
+		return (0);
+	return (count * logic);
 }
