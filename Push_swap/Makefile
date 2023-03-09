@@ -6,12 +6,12 @@
 #    By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/06 15:20:41 by lde-mich          #+#    #+#              #
-#    Updated: 2023/03/07 10:42:20 by lde-mich         ###   ########.fr        #
+#    Updated: 2023/03/09 08:58:14 by lde-mich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS			=	ft_moves1.c ft_moves2.c ft_atoi.c ft_size_count.c \
-					ft_split.c ft_strjoin.c ft_strlen.c push_swap.c \
+					ft_split.c ft_strjoin.c ft_strlen.c push_swap.c ft_sort.c \
 
 OBJS			= $(SRCS:.c=.o)
 

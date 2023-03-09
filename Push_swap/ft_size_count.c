@@ -6,7 +6,7 @@
 /*   By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 09:48:33 by lde-mich          #+#    #+#             */
-/*   Updated: 2023/03/07 17:27:59 by lde-mich         ###   ########.fr       */
+/*   Updated: 2023/03/09 08:07:05 by lde-mich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_size_count(int argc, char **argv, t_stack *stack)
 	char	**temp1;
 
 	i = 1;
+	temp = NULL;
 	while (i < argc)
 	{
 		temp = ft_strjoin(temp, argv[i]);
